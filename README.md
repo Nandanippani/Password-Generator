@@ -29,7 +29,7 @@ I used alternate method using object which is shown in the file script-with-obj.
 
 ### The URL of the deployed application
 
-
+https://nandanippani.github.io/Password-Generator/
 
 ### The URL of the GitHub repository that contains my code
 
