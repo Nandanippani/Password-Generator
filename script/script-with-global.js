@@ -89,7 +89,7 @@ var upperCasedCharacters = [
 ];
 
 // Function to prompt user for password options
-
+// Used global variables and set to false
 var numberOfChar = 0;
 var includeNumber = false;
 var includeUpperCase = false;
@@ -98,7 +98,7 @@ var includeSpecialChar = false;
 
 
 function getPasswordOptions() {
-  var validPasswordLength = false;
+  var validPasswordLength = false;  // here I set validPasswordLength to false and used in while condition with ! to set it to true.
 
   while (!validPasswordLength) {
     numberOfChar = prompt('Please choose the length of the password to generate');
@@ -107,13 +107,13 @@ function getPasswordOptions() {
       break;
     }
 
-    validPasswordLength = numberOfChar >= 10 && numberOfChar <= 64;
+    validPasswordLength = numberOfChar >= 10 && numberOfChar <= 64;  // Set number of characters between 10 and 64 and assigned it to validPasswordLength to validate input number so that it only accepts number between 10 and 64.
 
-    if (numberOfChar && !validPasswordLength) {
+    if (numberOfChar && !validPasswordLength) { //If numberOfChar and validPasswordLength is false then alerts user about invalid length and asks to enter number between 10 and 64.
       alert('This is not valid length; please enter number between 10 and 64');
     }
   }
-  includeNumber = confirm('Do you want numeric characters in your password?');
+  includeNumber = confirm('Do you want numeric characters in your password?');  // Used confirm statement to ask user to include numeric,lowercase, uppercase and special characters.
   includeLowerCase = confirm('Do you want lowercase characters in your password?');
   includeUpperCase = confirm('Do you want uppercase characters in your password?');
   includeSpecialChar = confirm('Do you want special characters in your password?');
@@ -122,17 +122,17 @@ function getPasswordOptions() {
 
 // Function for getting a random element from an array
 function getRandom(arr) {
-  var randomChar = arr[Math.floor(Math.random() * arr.length)];
+  var randomChar = arr[Math.floor(Math.random() * arr.length)];// Here using math method created random numbers and assigned to randomChar variable to get random index of array.
   return randomChar;
 }
 
 // Function to generate password with user input
 function generatePassword() {
-  var password = '';
+  var password = '';  // Used empty string password and called getPasswordOptions function to set global vaiables.
   getPasswordOptions();
 
-  while (password.length < numberOfChar) {
-    if (includeNumber && password.length < numberOfChar) {
+  while (password.length < numberOfChar) {   //This condition is set to get password of desired length.
+    if (includeNumber && password.length < numberOfChar) {  // If condition is used to set password length, numeric, lowercase, uppercase and special characters to less than number of characters to not exceed password length more than number of characters.
       password += getRandom(numericCharacters);
     }
     if (includeLowerCase && password.length < numberOfChar) {
@@ -145,7 +145,7 @@ function generatePassword() {
       password += getRandom(specialCharacters);
     }
   }
-  return password;
+  return password;  // returned password of desired length containing charcters that user wish to include.
 }
 
 // Get references to the #generate element
