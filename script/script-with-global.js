@@ -113,10 +113,12 @@ function getPasswordOptions() {
       alert('This is not valid length; please enter number between 10 and 64');
     }
   }
-  includeNumber = confirm('Do you want numeric characters in your password?');  // Used confirm statement to ask user to include numeric,lowercase, uppercase and special characters.
-  includeLowerCase = confirm('Do you want lowercase characters in your password?');
-  includeUpperCase = confirm('Do you want uppercase characters in your password?');
-  includeSpecialChar = confirm('Do you want special characters in your password?');
+  if (numberOfChar) {
+    includeNumber = confirm('Do you want numeric characters in your password?');  // Used confirm statement to ask user to include numeric,lowercase, uppercase and special characters.
+    includeLowerCase = confirm('Do you want lowercase characters in your password?');
+    includeUpperCase = confirm('Do you want uppercase characters in your password?');
+    includeSpecialChar = confirm('Do you want special characters in your password?');
+  }
 }
 
 
